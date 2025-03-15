@@ -1,0 +1,19 @@
+@startuml
+:Student: --> (Call)
+:Student: --> (ChooseDrink)
+
+"Студент" as Student
+"Вызвать робота" as (Call)
+"Выбор напитка" as (ChooseDrink)
+
+Server-->ReadCameraImage
+Server-->RecogniseRobot
+Server-->RecogniseStudent
+
+Robot-->MoveToStudent
+Robot-->MoveToDispenser
+Robot-->DeliveredDrink
+Robot-->ArrivedAtStudent
+ 
+
+@enduml
