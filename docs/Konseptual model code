@@ -1,0 +1,29 @@
+@startuml
+
+class Student {
+    + callRobot()
+    + chooseDrink()
+}
+
+class Server {
+    + recognizeRobot()
+    + calculatePath()
+    + recogniseStudent()
+}
+class Robot {
+    + moveToStudent()
+    + getDrink()
+    + deliverDrink()
+}
+class Dispenser {
+    + prepareDrink()
+    + deliverDrinkToRobot()
+}
+
+' Связи между классами
+Student --> Server : вызывает робота
+Student --> Server : выбирает напиток
+Server --> Robot: подает траекторию движения
+Robot --> Dispenser : получает напиток
+
+@enduml
