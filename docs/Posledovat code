@@ -1,0 +1,25 @@
+@startuml
+
+actor Student
+' The only difference between actor
+'and participant is the drawing
+participant System
+  '/
+
+Student -> System: Call robot
+
+System -> System: Find student
+System -> System: Find robot
+System -> System: Calculate path
+System -> System: Send move command
+System -> Robot: Move to student
+Robot -> System: Arrived at student
+System -> Student: Get drink
+Student -> System: Select drink
+System -> Robot: Move to dispenser
+Robot -> Dispenser: Get drink
+Dispenser -> Robot: Drink ready
+Robot -> System: Delivered drink
+System -> Student: Drink delivered
+
+@endumlm
