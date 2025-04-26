@@ -1,8 +1,10 @@
-﻿// CMakeProject1.h : включаемый файл для стандартных системных включаемых файлов
-// или включаемые файлы для конкретного проекта.
+#ifndef MOTOR_H
+#define MOTOR_H
 
-#pragma once
+class Motor {
+public:
+    void run();
+};
 
-#include <iostream>
+#endif
 
-// TODO: установите здесь ссылки на дополнительные заголовки, требующиеся для программы.
