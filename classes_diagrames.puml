@@ -1,0 +1,45 @@
+@startuml class_diagram
+class ControlSystem {
+    +ControlSystem(AEngine& engine, ACmdReceiver& receiver)
+    +run()
+}
+
+abstract class AEngine {
+    +forward(int time_ms)
+    +right(int time_ms)
+    +left(int time_ms)
+    +stop()
+}
+
+class FooEngine {
+    +FooEngine()
+    +forward(int time_ms) override
+    +right(int time_ms) override
+    +left(int time_ms) override
+    +stop() override
+}
+
+abstract class ACmdReceiver {
+    +receive() : std::string
+}
+
+class FooCmdReceiver {
+    +receive() : std::string override
+}
+
+class Motor {
+    +run()
+}
+
+class ColorDetector {
+    +ColorDetector()
+    +detect_colors(cv::Mat frame) : cv::Mat
+}
+
+ControlSystem --> AEngine
+ControlSystem --> ACmdReceiver
+ControlSystem --> ColorDetector
+AEngine <|-- FooEngine
+ACmdReceiver <|-- FooCmdReceiver
+FooEngine --> Motor
+@enduml
